@@ -38,4 +38,3 @@ for c in range(0,circle_int):
 
 print 'Part 1: ' + str(sum1)
 print 'Part 2: ' + str(sum2*2)
-print circle_int
