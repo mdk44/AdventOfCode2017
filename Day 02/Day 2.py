@@ -1,9 +1,9 @@
 # Day 2
 import re
 
-# input_file = 'Day 2\\Day 2 Test.txt'
-# input_file = 'Day 2\\Day 2 Test 2.txt'
-input_file = 'Day 2\\Day 2 Input.txt'
+# input_file = 'Day 02\\Day 2 Test.txt'
+# input_file = 'Day 02\\Day 2 Test 2.txt'
+input_file = 'Day 02\\Day 2 Input.txt'
 
 text_file = open(input_file)
 lines = text_file.read().split('\n')

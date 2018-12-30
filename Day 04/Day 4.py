@@ -1,7 +1,7 @@
 # Day 4
 
-# input_file = 'Day 4\\Day 4 Test.txt'
-input_file = 'Day 4\\Day 4 Input.txt'
+# input_file = 'Day 04\\Day 4 Test.txt'
+input_file = 'Day 04\\Day 4 Input.txt'
 
 text_file = open(input_file)
 lines = text_file.read().split('\n')
