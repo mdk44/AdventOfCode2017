@@ -1,7 +1,9 @@
-import re, itertools, collections
+import sys, re, itertools, collections
 
-# input_file = 'Day 07\\Input.csv'
-input_file = 'Day 07\\Test.csv'
+sys.setrecursionlimit(5000)
+
+input_file = 'Day 07\\Input.csv'
+# input_file = 'Day 07\\Test.csv'
 text_file = open(input_file)
 lines = text_file.read().split('\n')
 
@@ -32,13 +34,6 @@ def return_bottom(branches):
         if check == False:
             return b
 
-def find_mismatch(tree):
-    total_weight = return_weight()
-    if tree in branches:
-        for a, b in itertools.combinations(branches[tree], 2):
-            if total_weight[a] != total_weight[b]:
-                return branches[tree]
-
 def return_weight(lst):
     nxt = []
     for l in lst:
@@ -46,11 +41,24 @@ def return_weight(lst):
             if l in branches[branch]:
                 if branch not in nxt:
                     nxt.append(branch)
-                total_weight[branch] += weight[l]
+                total_weight[branch] += total_weight[l]
+    if 'tknk' not in nxt and 'qibuqqg' not in nxt:
+        return_weight(nxt)
     return nxt
+
+def find_mismatch(lst):
+    for branch in branches:
+        for l in lst:
+            if l in branches[branch]:
+                for a, b in itertools.combinations(branches[branch], 2):
+                    if total_weight[a] != total_weight[b]:
+                        return branches[branch]
     
 print("Part 1: " + str(return_bottom(branches))) # Correct!
 
+# Part 2
 new = return_weight(root)
-for n in new:
-    print(n, total_weight[n])
+# new = return_weight(new)
+ans = find_mismatch(new)
+for a in ans:
+    print(a, weight[a], total_weight[a]) # Correct!
