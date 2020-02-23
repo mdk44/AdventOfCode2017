@@ -72,8 +72,12 @@ def read_line(line):
     options[num](inp_reg, val)
     return True
 
+max_val = 0
 read_regs(lines)
 for line in lines:
     read_line(line)
+    if max(regs.values()) > max_val: # For part 2
+        max_val = max(regs.values())
 
 print("Part 1: " + str(max(regs.values()))) # Correct!
+print("Part 2: " + str(max_val))
